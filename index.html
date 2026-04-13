@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackFuel</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div id="tf" style="position:relative;">
+
+    <!-- RESET CONFIRM OVERLAY -->
+    <div id="confirm-reset">
+      <div class="reset-modal">
+        <div style="font-size:36px;margin-bottom:8px;">🗑️</div>
+        <div class="bc reset-title">RESET WEEK?</div>
+        <div class="reset-desc">This wipes all logged calories, protein and workouts for the week. Export to MFP first if you want to save it.</div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-cancel" onclick="cancelReset()">Cancel</button>
+          <button class="btn-reset bc" onclick="confirmReset()">RESET</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="bc logo-track">TRACK</span>
+          <span class="bc logo-fuel">FUEL</span>
+          <span class="logo-sub">Summer</span>
+        </div>
+        <button class="btn-newweek" onclick="askReset()"
+          onmouseover="this.classList.add('hover')"
+          onmouseout="this.classList.remove('hover')">New week</button>
+      </div>
+      <div style="display:flex;gap:0;margin-top:8px;" id="tabs"></div>
+    </div>
+
+    <div id="content" style="padding:16px 16px 80px;"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
